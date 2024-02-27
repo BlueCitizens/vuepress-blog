@@ -1,6 +1,7 @@
 ---
 icon: glasses
-cover: /assets/images/cover3.jpg
+cover: https://pic.imgdb.cn/item/5e8d961f504f4bcb04240544.png
+article: false
 ---
 
 # I‘m BlueCitizen

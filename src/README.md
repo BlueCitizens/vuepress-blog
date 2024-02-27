@@ -30,5 +30,5 @@ projects:
     link: https://pc426.com/
 
 
-footer: 自定义你的页脚文字
+footer: 苏ICP备20018654号-1
 ---

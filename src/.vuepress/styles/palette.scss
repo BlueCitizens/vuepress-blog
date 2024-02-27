@@ -13,7 +13,8 @@
 
 @font-face {
     font-family: "puhui";
-    src: url("/assets/font/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf");
+    src: url("/assets/font/AlibabaPuHuiTi-2-55-Regular.woff2") format("woff2"),
+    url("/assets/font/AlibabaPuHuiTi-2-55-Regular.woff") format("woff");
     font-display: swap;
 }
 

@@ -18,11 +18,6 @@ export default hopeTheme({
 
   docsDir: "src",
   
-  navbarLayout: {
-    start: ["Brand"],
-    center: ["Links"],
-    end: ["Language", "Repo", "Outlook", "Search"],
-  },
   // 导航栏
   navbar,
 
@@ -30,7 +25,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "温柔且正确的人总是难以生存，因为这个世界既不温柔，也不正确。",
   displayFooter: true,
 
   // 博客相关
