@@ -1,0 +1,9 @@
+// you can change colors here
+@font-face {
+    font-family: "jbmono";
+    src: url("/assets/font/JetBrainsMono-Medium.woff2") format("woff2");
+    font-display: swap;
+}
+
+$theme-color: #40b9ce;
+$font-family-mono: jbmono
