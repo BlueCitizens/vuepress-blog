@@ -24,17 +24,23 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "smiley";
+    src: url("/assets/font/Smiley_Sans_Oblique_斜体.woff2") format("woff2"),
+        url("/assets/font/Smiley_Sans_Oblique_斜体.woff") format("woff");
+    font-display: swap;
+}
+
+.vp-blog-mask {
+    animation-name: slide;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 .vp-site-name {
-    font-family: Arual;
-    font-weight: bolder;
-    background: black;
-    text-shadow: 0 0 0px #4e4e4e,
-        0 0 2px #4e4e4e,
-        0 0 3px #4e4e4e;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    color: transparent
+    font-family: jbmono;
 }
 
 .vp-blog-hero-title {
@@ -51,6 +57,31 @@
     text-shadow: #2a60d4 3px 0 0, #000000 0 2px 0, #000 -1px 0 0, #000 0 -1px 0;
 }
 
-.vp-blogger-name {
-    font-family: jbmono;
+.vp-project-name {
+    font-family: smiley;
 }
+
+.vp-project-desc {
+    font-family: smiley;
+    font-size: 0.9em;
+}
+
+.vp-blogger-name {
+    font-family: Arual;
+    font-weight: bolder;
+}
+
+.vp-blogger-description {
+    font-family: smiley;
+    font-size: 1em;
+}
+
+.vp-article-title {
+    font-family: smiley;
+    font-size: 1.8em;
+}
+
+@keyframes slide {
+    from { background-position: left; }
+    to { background-position: right; }
+  }

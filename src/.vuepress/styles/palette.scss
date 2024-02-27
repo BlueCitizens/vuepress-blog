@@ -5,5 +5,19 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "yuyang";
+    src: url("/assets/font/TsangerYuYangT_W03_W03.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "puhui";
+    src: url("/assets/font/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf");
+    font-display: swap;
+}
+
 $theme-color: #40b9ce;
-$font-family-mono: jbmono
+$font-family-heading: smiley;
+$font-family: puhui;
+$font-family-mono: jbmono;

@@ -1,7 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
-import { MR_HOPE_AVATAR } from "./logo.js";
 
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
@@ -15,7 +14,7 @@ export default hopeTheme({
 
   logo: "https://pic.imgdb.cn/item/65dc66f09f345e8d035b2d36.png",
 
-  repo: "https://github.com/BlueCitizens",
+  repo: "https://github.com/BlueCitizens/vuepress-blog",
 
   docsDir: "src",
   
@@ -39,12 +38,13 @@ export default hopeTheme({
     description: "虚度光阴患者",
     intro: "/intro.html",
     sidebarDisplay: 'mobile',
+    timeline: "末日时在做什么？有没有空？可以来拯救吗？",
     medias: {
       // Baidu: "https://example.com",
       BiliBili: "https://space.bilibili.com/3718581",
       // Bitbucket: "https://example.com",
       // Dingding: "https://example.com",
-      Discord: "https://example.com",
+      // Discord: "https://example.com",
       // Dribbble: "https://example.com",
       Email: "mailto:bluecitizens@163.com",
       // Evernote: "https://example.com",
@@ -63,9 +63,10 @@ export default hopeTheme({
       // QQ: "https://example.com",
       // Qzone: "https://example.com",
       // Reddit: "https://example.com",
-      Rss: "https://example.com",
-      Steam: "https://example.com",
-      Twitter: "https://example.com",
+      // Rss: "https://example.com",
+      Steam: "https://steamcommunity.com/profiles/76561198146437545/",
+      Telegram: "https://t.me/bckun_hiki",
+      Twitter: "https://twitter.com/bckun_hiki",
       // Wechat: "https://example.com",
       // Weibo: "https://example.com",
       // Whatsapp: "https://example.com",
