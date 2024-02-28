@@ -88,6 +88,11 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
+    docsearch:{
+      apiKey: '',
+      indexName: '',
+      appId: ''
+    },
     blog: true,
 
     // 在启用之前需要安装 @waline/client
