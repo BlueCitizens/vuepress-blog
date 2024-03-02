@@ -15,7 +15,7 @@ VuePress的官方文档里没有提供任何关于自定义部署的说明，而
 
 ## 需求分析
 
-首先代理静态页面最合适的容器肯定还是nginx。问题是，如果这是一个纯静态页面尚可，但作为一个博客，必须要能轻松将新文章展示到页面上。如果不借助其他手段，只能每次更新都要重新构建和发布，那就太麻烦了，违背了我从原本自建的博客系统转移到静态博客的初衷。由此可见VP官方文档推荐用自动化平台部署确实是有原因的。再众多方案中，唯一可以免费使用的就是利用GitHub或者GitLab这样的代码托管平台自带的自动化功能。但速度和稳定性并不理想，尤其是GitHub天然就有访问门槛。
+首先代理静态页面最合适的容器肯定还是nginx。问题是，如果这是一个纯静态页面尚可，但作为一个博客，必须要能轻松将新文章展示到页面上。如果不借助其他手段，只能每次更新都要重新构建和发布，那就太麻烦了，违背了我从原本自建的博客系统转移到静态博客的初衷。由此可见VP官方文档推荐用自动化平台部署确实是有原因的。在众多方案中，唯一可以免费使用的就是利用GitHub或者GitLab这样的代码托管平台自带的自动化功能。但速度和稳定性并不理想，尤其是GitHub天然就有访问门槛。
 
 ## 方案选择
 
@@ -76,8 +76,6 @@ sudo apt install jenkins
 首先点击头像，依此进入到`Settings / Developer Settings / Personal access tokens / Tokens (classic)`，下拉`Generate new token > Generate new token (classic)`或者[直接戳链接直达](https://github.com/settings/tokens/new)，Note随便填，Expiration可以选择过期时间，也可以选永不过期，然后勾选`repo` `admin:public_key` `admin:repo_hook`，点最后的Generate token生成。此时会给你一个仅显示一次的key，这是使用这条token的唯一凭证，将它保存好。
 
 ![](https://img.bckun.top/file/4a00ca770cedcd4e0366e.png)
-
-
 
 接下来在你的GitHub账户下新建一个仓库，进入仓库的`Settings > Webhook`，点击`Add webhook`，`Payload URL`填`Jenkins的地址/github-webhook/`，例如`http://xx.xxx.xxx.xxx:8080/github-webhook/`，触发规则选中`Just the push event`，勾选Active。添加成功后，仓库的变动将会推送到Jenkins的构建触发器。
 
