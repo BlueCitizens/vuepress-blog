@@ -12,7 +12,7 @@ projects:
   - icon: circle-play
     name: B站缓存转换工具
     desc: 将安卓app的缓存文件转换为视频和外挂弹幕
-    link: https://github.com/BlueCitizens/bilibili-app-cache-converter
+    link: https://blog.bckun.top/%E5%B0%86%E4%BD%A0%E7%94%A8%E6%89%8B%E6%9C%BA%E7%BC%93%E5%AD%98%E7%9A%84B%E7%AB%99%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E4%B8%BAmp4%E5%92%8Cass%E5%BC%B9%E5%B9%95.html
 
   - icon: link
     name: Heaven Burn Red
