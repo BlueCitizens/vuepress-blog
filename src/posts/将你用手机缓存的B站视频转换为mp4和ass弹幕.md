@@ -21,7 +21,11 @@ tag:
 ### 下载
 
 两个版本都发布在[Github release](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases)里了，或者你也可以通过网盘下载：[蓝奏云](https://www.lanzoub.com/b05f2sduj)
-密码:fiav
+密码: fiav
+
+蓝奏云限制上传超过100M的文件和分卷文件 需要自己修改后缀名分卷解压
+
+[123盘](https://www.123pan.com/s/a4ncjv-x6fph.html) 提取码: vt1C
 
 ### 安装
 
