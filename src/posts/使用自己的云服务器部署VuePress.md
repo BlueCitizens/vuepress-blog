@@ -119,6 +119,17 @@ sudo apt install jenkins
 
   ![](https://img.bckun.top/file/4484a8562baeb11ee7951.png)
 
+  ```bash
+  echo $WORKSPACE
+  node -v
+  npm -v
+  npm install&&
+  npm run docs:build
+  sudo rsync -a src/.vuepress/dist/ /var/www/vp-blog/dist/ --delete
+  ```
+
+  
+
   需要注意的是，你的构建指令可能与我不同。`rsync -a`命令用来将构建同步到你准备用nginx代理的路径，这样每次构建后nginx都能代理最新的构建。
 
   另外，Jenkins默认使用的用户组是`Jenkins:Jenkins`，这个用户只拥有在Jenkins工作目录下的权限，因此同步的命令需要使用`sudo`。通常解决这个问题有两个方向，一个是修改Jenkins使用的用户组，另一个是允许Jenkins绕过密码使用`sudo`，可以参考这两篇文章

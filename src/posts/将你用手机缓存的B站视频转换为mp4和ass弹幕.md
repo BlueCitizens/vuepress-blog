@@ -16,18 +16,28 @@ tag:
 
 ## 使用
 
-我打包了两个版本，一个是用Electron构建的界面，一个是普通的终端界面，核心代码是完全一样的，区别只在界面的美观程度。但是Electron打包出来实在是太大了，而且需要运行安装程序，所以我更推荐你使用便携版。
+我打包了两个版本，一个是用Electron构建的界面，一个是普通的终端界面，核心代码是完全一样的，区别只在界面的美观程度。Electron打包出来比较大，而且需要运行安装程序；便携版修复和更新会晚于GUI版（以GitHub release 为准）。
 
 ### 下载
 
-两个版本都发布在[Github release](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases)里了，或者你也可以通过网盘下载：[蓝奏云](https://www.lanzoub.com/b05f2sduj)
-密码: fiav
-
-蓝奏云限制上传超过100M的文件和分卷文件 需要自己修改后缀名分卷解压
+两个版本都发布在[Github release](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases)里了，或者你也可以通过网盘下载：
 
 [123盘](https://www.123pan.com/s/a4ncjv-x6fph.html) 提取码: vt1C
+
+~~[蓝奏云](https://www.lanzoub.com/b05f2sduj)
+密码: fiav~~
+
+蓝奏云限制上传超过100M的文件和分卷文件，视情况上传
+
 
 ### 安装
 
 GUI版本：安装使用
+
 Portable版本：解压即用
+
+## 更新日志
+
+### 2024.03.16
+
+修复了当缓存只有视频或音频时无限加载的问题 [v1.0.0-beta](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases/tag/v1.0.0-beta)
