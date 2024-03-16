@@ -10,7 +10,7 @@ export default hopeTheme({
     url: "https://bckun.top",
   },
 
-  iconAssets: "fontawesome-with-brands",
+  iconAssets: "https://kit.fontawesome.com/cdf53d0004.js",
 
   logo: "https://pic.imgdb.cn/item/65dc66f09f345e8d035b2d36.png",
 
