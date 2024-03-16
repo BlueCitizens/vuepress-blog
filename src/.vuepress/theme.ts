@@ -88,12 +88,13 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
-    docsearch:{
-      apiKey: '',
-      indexName: '',
-      appId: ''
-    },
+    searchPro: true,
     blog: true,
+
+    comment: {
+      provider: "Waline",
+      serverURL: "comment.bckun.top", // your server url
+    },
 
     // 在启用之前需要安装 @waline/client
     // 警告: 这是一个仅供演示的测试服务器，在生产环境中请自行部署并使用自己的服务器！
@@ -103,7 +104,7 @@ export default hopeTheme({
     // },
 
     components: {
-      components: ["Badge", "VPCard"],
+      components: ["Badge", "VPCard", "SiteInfo"],
     },
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。

@@ -4,7 +4,7 @@ export default navbar([
   "/",
   {
     text: "文章",
-    icon: "pen-to-square",
+    // icon: "pen-to-square",
     children: [
       { text: "时间轴", icon: "timeline", link: "/timeline/"},
       {
@@ -22,5 +22,10 @@ export default navbar([
     text: "About Me",
     // icon: "circle-info",
     link: "/intro",
+  },
+  {
+    text: "BCkun Index",
+    // icon: "circle-info",
+    link: "https://bckun.top",
   },
 ]);
