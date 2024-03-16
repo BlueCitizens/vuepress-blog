@@ -29,15 +29,10 @@ projects:
     desc: 荣格心理学
     link: https://book.douban.com/subject/1981608/
 
-  - icon: link
-    name: PC426
-    desc: 学会思考，停止盲从
-    link: https://pc426.com/
-
   - icon: friend
     name: 友链
-    desc: 我的朋友很少 但
-    link: /friend
+    desc: 我的朋友很少 但...
+    link: /friends
 
 
 footer: 苏ICP备20018654号-1

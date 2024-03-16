@@ -5,6 +5,9 @@ category:
   - 项目
 tag:
   - Python
+
+star: true
+sticky: true
 ---
 
 # 将你用手机缓存的B站视频转换为mp4和ass弹幕
