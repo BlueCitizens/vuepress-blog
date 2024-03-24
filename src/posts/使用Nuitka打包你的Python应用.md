@@ -52,8 +52,8 @@ zstandard   0.22.0
 
 ## 使用命令打包
 
+```sh
+python -m nuitka --standalone --mingw64 src/flask/app.py --enable-plugin=tk-inter
+ --onefile --windows-icon-from-ico=resources/bili.ico
 ```
-nuitka --mingw64 \
---standalone --follow-imports --enable-plugin=pyqt5 \
---follow-import-to=need --output-dir=out index.py
-```
+

@@ -16,7 +16,7 @@ tag:
 
 ## 使用
 
-我打包了两个版本，一个是用Electron构建的界面，一个是普通的终端界面，核心代码是完全一样的，区别只在界面的美观程度。Electron打包出来比较大，而且需要运行安装程序；便携版修复和更新会晚于GUI版（以GitHub release 为准）。
+我打包了两个版本，一个是用Electron构建的界面，一个是普通的终端界面，核心代码是完全一样的，区别只在界面的美观程度。Electron打包出来比较大，而且需要运行安装程序；便携版修复和更新可能会晚于GUI版（以GitHub release 为准）。
 
 ### 下载
 
@@ -24,8 +24,9 @@ tag:
 
 [123盘](https://www.123pan.com/s/a4ncjv-x6fph.html) 提取码: vt1C
 
-~~[蓝奏云](https://www.lanzoub.com/b05f2sduj)
-密码: fiav~~
+注意下载大文件可能需要开通会员，尽可能通过GitHub下载
+
+~~[蓝奏云](https://www.lanzoub.com/b05f2sduj) 密码: fiav~~
 
 蓝奏云限制上传超过100M的文件和分卷文件，视情况上传
 
@@ -40,4 +41,6 @@ Portable版本：解压即用
 
 ### 2024.03.16
 
-修复了当缓存只有视频或音频时无限加载的问题 [v1.0.0-beta](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases/tag/v1.0.0-beta)
+现在可以在遇到无法转换的文件时自动跳过并回显有问题的文件夹了 [v1.0.0-beta.2](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases/tag/v1.0.0-beta.2)
+
+修复了当缓存只有视频或音频时无限加载的问题 [v1.0.0-beta.1](https://github.com/BlueCitizens/bilibili-app-cache-converter/releases/tag/v1.0.0-beta.1)
