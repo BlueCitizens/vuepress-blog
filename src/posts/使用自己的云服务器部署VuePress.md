@@ -6,6 +6,8 @@ category:
 tag:
   - Jenkins
   - GitHub
+
+star: true
 ---
 
 VuePress的官方文档里没有提供任何关于自定义部署的说明，而是推荐了若干自动化平台，里面还没有一个开源的。可能是默认大家都是花钱解决问题吧。
