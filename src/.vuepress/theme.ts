@@ -1,4 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
+
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
@@ -17,7 +18,7 @@ export default hopeTheme({
   repo: "https://github.com/BlueCitizens/vuepress-blog",
 
   docsDir: "src",
-  
+
   // 导航栏
   navbar,
 
@@ -35,18 +36,24 @@ export default hopeTheme({
     sidebarDisplay: 'mobile',
     timeline: "末日时在做什么？有没有空？可以来拯救吗？",
     medias: {
-      // Baidu: "https://example.com",
       BiliBili: "https://space.bilibili.com/3718581",
+      Email: "mailto:bluecitizens@163.com",
+      GitHub: "https://github.com/BlueCitizens",
+      Steam: "https://steamcommunity.com/profiles/76561198146437545/",
+      Telegram: "https://t.me/bckun_hiki",
+      Twitter: "https://twitter.com/bckun_hiki",
+      // Baidu: "https://example.com",
+      // BiliBili: "https://example.com",
       // Bitbucket: "https://example.com",
       // Dingding: "https://example.com",
       // Discord: "https://example.com",
       // Dribbble: "https://example.com",
-      Email: "mailto:bluecitizens@163.com",
+      // Email: "mailto:info@example.com",
       // Evernote: "https://example.com",
       // Facebook: "https://example.com",
       // Flipboard: "https://example.com",
       // Gitee: "https://example.com",
-      GitHub: "https://github.com/BlueCitizens",
+      // GitHub: "https://example.com",
       // Gitlab: "https://example.com",
       // Gmail: "mailto:info@example.com",
       // Instagram: "https://example.com",
@@ -59,15 +66,17 @@ export default hopeTheme({
       // Qzone: "https://example.com",
       // Reddit: "https://example.com",
       // Rss: "https://example.com",
-      Steam: "https://steamcommunity.com/profiles/76561198146437545/",
-      Telegram: "https://t.me/bckun_hiki",
-      Twitter: "https://twitter.com/bckun_hiki",
+      // Steam: "https://example.com",
+      // Twitter: "https://example.com",
       // Wechat: "https://example.com",
       // Weibo: "https://example.com",
       // Whatsapp: "https://example.com",
       // Youtube: "https://example.com",
       // Zhihu: "https://example.com",
-      // MrHope: ["https://mister-hope.com", MR_HOPE_AVATAR],
+      // VuePressThemeHope: {
+      //   icon: "https://theme-hope-assets.vuejs.press/logo.svg",
+      //   link: "https://theme-hope.vuejs.press",
+      // },
     },
   },
 
@@ -88,37 +97,51 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
-    searchPro: true,
     blog: true,
-
+    
     comment: {
       provider: "Waline",
       serverURL: "comment.bckun.top", // your server url
     },
 
-    // 在启用之前需要安装 @waline/client
-    // 警告: 这是一个仅供演示的测试服务器，在生产环境中请自行部署并使用自己的服务器！
+    // 启用之前需安装 @waline/client
+    // 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
     // comment: {
     //   provider: "Waline",
     //   serverURL: "https://waline-comment.vuejs.press",
     // },
 
     components: {
-      components: ["Badge", "VPCard", "SiteInfo"],
+      components: ["Badge", "VPCard"],
     },
+
+    // 此处开启了很多功能用于演示，你应仅保留用到的功能。
+    markdownImage: {
+      figure: true,
+      lazyload: true,
+      size: true,
+    },
+
+    // markdownMath: {
+    //   // 启用前安装 katex
+    //   type: "katex",
+    //   // 或者安装 mathjax-full
+    //   type: "mathjax",
+    // },
+
+    // 此功能被开启用于演示，你应仅当使用时保留。
+    markdownTab: true,
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。
     mdEnhance: {
       align: true,
       attrs: true,
-      codetabs: true,
       component: true,
       demo: true,
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
       include: true,
       mark: true,
+      plantuml: true,
+      spoiler: true,
       stylize: [
         {
           matcher: "Recommended",
@@ -134,7 +157,7 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
+      tasklist: true,
       vPre: true,
 
       // 在启用之前安装 chart.js
@@ -151,22 +174,11 @@ export default hopeTheme({
       // gfm requires mathjax-full to provide tex support
       // gfm: true,
 
-      // 在启用之前安装 katex
-      // katex: true,
-
-      // 在启用之前安装 mathjax-full
-      // mathjax: true,
-
       // 在启用之前安装 mermaid
       // mermaid: true,
 
       // playground: {
       //   presets: ["ts", "vue"],
-      // },
-
-      // 在启用之前安装 reveal.js
-      // revealJs: {
-      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
       // },
 
       // 在启用之前安装 @vue/repl
@@ -180,7 +192,7 @@ export default hopeTheme({
     // pwa: {
     //   favicon: "/favicon.ico",
     //   cacheHTML: true,
-    //   cachePic: true,
+    //   cacheImage: true,
     //   appendBase: true,
     //   apple: {
     //     icon: "/assets/icon/apple-icon-152.png",
@@ -231,6 +243,11 @@ export default hopeTheme({
     //       },
     //     ],
     //   },
+    // },
+
+    // 如果你需要幻灯片，安装 @vuepress/plugin-revealjs 并取消下方注释
+    // revealjs: {
+    //   plugins: ["highlight", "math", "search", "notes", "zoom"],
     // },
   },
 });
