@@ -5,13 +5,18 @@
 }
 
 @font-face {
+    font-family: 'Omnitrinx';
+    src: url("/assets/font/Omnitrinx.ttf");
+}
+
+@font-face {
     font-family: 'Citrica-Regular';
     src: url("/assets/font/Citrica-Regular.ttf");
 }
 
 /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-    font-family: "阿里妈妈方圆体 VF Regular";
+    font-family: "VF Regular";
     src: url("/assets/font/AlimamaFangYuanTiVF-Thin.woff2") format("woff2"),
         url("/assets/font/AlimamaFangYuanTiVF-Thin.woff") format("woff");
     font-display: swap;
@@ -53,17 +58,16 @@
 }
 
 .vp-blog-hero-title {
-    font-family: 阿里妈妈方圆体 VF Regular;
+    font-family: VF Regular;
     font-size: 4em;
-    font-weight: 350;
-    text-shadow: #2a60d4 3.5px 0 0, #000000 0 3px 0, #000 -2px 0 0, #000 0 -1px 0;
+    font-weight: 450;
+    text-shadow: #264fa8 4px 0 0, #000000 0 3px 0, #000 -2px 0 0, #000 0 -1px 0;
 }
 
 .vp-blog-hero-description {
-    font-family: Arual;
+    font-family: Omnitrinx;
     font-size: 3em;
-    font-weight: bolder;
-    text-shadow: #2a60d4 3px 0 0, #000000 0 2px 0, #000 -1px 0 0, #000 0 -1px 0;
+    text-shadow: #264fa8 5px 0 0, #000000 0 2px 0, #000 -1px 0 0, #000 0 -1px 0;
 }
 
 .vp-project-name {
