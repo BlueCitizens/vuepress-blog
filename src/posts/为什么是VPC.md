@@ -1,6 +1,8 @@
 ---
 icon: pen-to-square
 date: 2024-12-09
+isOriginal: true
+license: CC 4.0
 category:
   - 网络
 tag:
