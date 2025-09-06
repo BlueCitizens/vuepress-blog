@@ -24,11 +24,6 @@ projects:
     desc: 荣格心理学
     link: https://book.douban.com/subject/1981608/
 
-  - icon: hands-clapping
-    name: 看地偶看的
-    desc: 别切了，先吃饭吧
-    link: /idol
-
   - icon: friend
     name: 友链
     desc: 我的朋友很少 但...
