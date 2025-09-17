@@ -18,6 +18,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "smiley";
+    src: url("/assets/font/Smiley_Sans_Oblique.woff2") format("woff2"),
+    url("/assets/font/Smiley_Sans_Oblique.woff") format("woff");
+    font-display: swap;
+}
+
 $vp-font-heading: smiley;
 $vp-font: puhui;
 $vp-font-mono: jbmono;

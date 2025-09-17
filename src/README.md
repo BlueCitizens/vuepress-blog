@@ -1,6 +1,6 @@
 ---
 home: true
-layout: BlogHome
+layout: Blog
 icon: home
 title: 主页
 bgImage: https://pic.imgdb.cn/item/65dc6fb79f345e8d03721808.png
@@ -9,10 +9,10 @@ heroText: 蓝调城市
 heroFullScreen: true
 tagline: Cyber Cyan
 projects:
-  - icon: project
+  - icon: circle-play
     name: B站缓存转换工具
     desc: 将安卓app的缓存文件转换为视频和外挂弹幕
-    link: https://blog.bckun.top/posts/%E5%B0%86%E4%BD%A0%E7%94%A8%E6%89%8B%E6%9C%BA%E7%BC%93%E5%AD%98%E7%9A%84B%E7%AB%99%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E4%B8%BAmp4%E5%92%8Cass%E5%BC%B9%E5%B9%95.html
+    link: /posts/%E5%B0%86%E4%BD%A0%E7%94%A8%E6%89%8B%E6%9C%BA%E7%BC%93%E5%AD%98%E7%9A%84B%E7%AB%99%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E4%B8%BAmp4%E5%92%8Cass%E5%BC%B9%E5%B9%95.html
 
   - icon: music
     name: KAMITSUBAKI
@@ -22,12 +22,17 @@ projects:
   - icon: book
     name: 《回忆 · 梦 · 思考 —— 荣格自传》
     desc: 荣格心理学
-    link: https://book.douban.com/subject/1981608/
+    link: https://www.librarything.com/work/36749/t/Memories-Dreams-Reflections
 
-  - icon: friend
+  - icon: car-side
+    name: 洛可仕様痛車
+    desc: 洛可Evolution03誕生日スペシャル企画
+    link: itasha
+
+  - icon: link
     name: 友链
     desc: 我的朋友很少 但...
-    link: /friends
+    link: friends
 
 
 footer: 苏ICP备20018654号-1
