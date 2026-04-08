@@ -25,7 +25,7 @@ toc: false
 
 ## 午前零時まで
 
-![XII =x400](https://img.bckun.top/file/AgACAgUAAyEGAASL3PYsAAMJaMGjf5JDYAJhyJ6U94toXUgnUX0AAlHEMRv7WAhWohzTzMB42mYBAAMCAAN4AAM2BA.png)
+![XII](https://img.bckun.top/file/AgACAgUAAyEGAASL3PYsAAMJaMGjf5JDYAJhyJ6U94toXUgnUX0AAlHEMRv7WAhWohzTzMB42mYBAAMCAAN4AAM2BA.png)
 
 机盖的立绘参考了12点的打歌服，背景的时钟设计致敬了Persona3中的「影時間」设定。
     
