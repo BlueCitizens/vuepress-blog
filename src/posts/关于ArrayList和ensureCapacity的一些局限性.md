@@ -1,0 +1,221 @@
+---
+icon: pen-to-square
+date: 2023-11-05
+isOriginal: true
+category:
+  - 开发
+tag:
+  - Java
+  - JVM
+---
+
+# 关于ArrayList和ensureCapacity的一些局限性
+
+## 环境
+JDK8
+
+## 疑点
+看到一个ArrayList的优化方法，就是当需要一次性插入较多数据时，可以先扩容再插入。这是因为ArrayList本质上是一个动态增长的数组，当容量达到上限时会自动按照一定倍率创建一个新数组，然后将原来的数组拷贝从而达到扩容的目的。这就导致如果不断地add海量数据，频繁的拷贝会降低ArrayList的性能。ArrayList提供了ensureCapacity的方法来指定容量。然而...
+
+```java
+// 用ArrayList声明可以正常调用ensureCapacity
+ArrayList<Integer> il = new ArrayList<>();
+
+// 用List声明无法调用ensureCapacity
+List<Integer> il = new ArrayList<>();
+```
+查看了List接口的源码，确实没有ensureCapacity的方法声明。同时，ArrayList的父类AbstractList中也没有。这个声明只在ArrayList 的实现类中出现了。
+
+```java
+    /**
+     * Increases the capacity of this <tt>ArrayList</tt> instance, if
+     * necessary, to ensure that it can hold at least the number of elements
+     * specified by the minimum capacity argument.
+     *
+     * @param   minCapacity   the desired minimum capacity
+     */
+    public void ensureCapacity(int minCapacity) {
+        int minExpand = (elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
+            // any size if not default element table
+            ? 0
+            // larger than default for default empty table. It's already
+            // supposed to be at default size.
+            : DEFAULT_CAPACITY;
+
+        if (minCapacity > minExpand) {
+            ensureExplicitCapacity(minCapacity);
+        }
+    }
+```
+
+在Java类的继承关系中，父类是无法调用子类独有的变量和方法的。我们编程时习惯于使用父类或是接口来声明一个对象，再用具体的实现类去实例化。这个过程可以大致分为：
+
+ 1. 声明一个父类（或接口）的引用
+ 2. 该引用指向一个子类（或实现类）的实例
+
+这就导致了通过List接口声明而用ArrayList实例化后无法调用ensureCapacity。
+
+ArrayList源码中还有一个方法，就是它的一个含参构造函数
+
+```java
+    /**
+     * Constructs an empty list with the specified initial capacity.
+     *
+     * @param  initialCapacity  the initial capacity of the list
+     * @throws IllegalArgumentException if the specified initial capacity
+     *         is negative
+     */
+    public ArrayList(int initialCapacity) {
+        if (initialCapacity > 0) {
+            this.elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            this.elementData = EMPTY_ELEMENTDATA;
+        } else {
+            throw new IllegalArgumentException("Illegal Capacity: "+
+                                               initialCapacity);
+        }
+    }
+```
+通过这个构造器可以在实例化时指定容量
+
+```java
+// 指定初始容量为100
+List<Integer> il = new ArrayList<>(100);
+```
+
+那么有没有其他办法扩容呢，这个等有空再研究研究吧。
+## 补充
+这里引用一个stackoverflow上的回答：
+
+> No, ensureCapacity doesn't change the logical size of an ArrayList - it changes the capacity, which is the size the list can reach before it next needs to copy values.
+>You need to be very aware of the difference between a logical size (i.e. all the values in the range [0, size) are accessible, and adding a new element will add it at index size) and the capacity which is more of an implementation detail really - it's the size of the backing array used for storage.
+>Calling ensureCapacity should only ever make any difference in terms of performance (by avoiding excessive copying) - it doesn't affect the logical model of what's in the list, if you see what I mean.
+
+提问者使用了如下代码，并且返回了越界错误
+
+```java
+ArrayList<String> a = new ArrayList<String>();
+a.ensureCapacity(200);
+a.add(190,"test");
+System.out.println(a.get(190).toString());  // IndexOutOfBoundsException
+```
+
+原因也在回答中做了说明，ensureCapacity并不是真的改变了ArrayList的真实容量，因此无法像插入数组中对应下表的位置一样。
+
+进一步阅读ArrayList的源码，观察类的数据结构：
+
+```java
+    /**
+     * Shared empty array instance used for default sized empty instances. We
+     * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when
+     * first element is added.
+     */
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    /**
+     * The array buffer into which the elements of the ArrayList are stored.
+     * The capacity of the ArrayList is the length of this array buffer. Any
+     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
+     * will be expanded to DEFAULT_CAPACITY when the first element is added.
+     */
+    transient Object[] elementData; // non-private to simplify nested class access
+
+    /**
+     * The size of the ArrayList (the number of elements it contains).
+     *
+     * @serial
+     */
+    private int size;
+```
+
+可以大致看出，Object数组elementData就是存放所有元素的地方，但它是没有被初始化的。再看构造器：
+
+```java
+    /**
+     * Constructs an empty list with an initial capacity of ten.
+     */
+    public ArrayList() {
+        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+    }
+    
+    /**
+     * Constructs an empty list with the specified initial capacity.
+     *
+     * @param  initialCapacity  the initial capacity of the list
+     * @throws IllegalArgumentException if the specified initial capacity
+     *         is negative
+     */
+    public ArrayList(int initialCapacity) {
+        if (initialCapacity > 0) {
+            this.elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            this.elementData = EMPTY_ELEMENTDATA;
+        } else {
+            throw new IllegalArgumentException("Illegal Capacity: "+
+                                               initialCapacity);
+        }
+    }
+```
+
+可以看到，含参构造器在初始化elementData时就已经指定了其大小。而无参构造器将其初始化为一个空的数组。根据说明，在第一个元素添加后会被调整为默认大小，具体的调整方法可以自己参考源码。
+
+至此有些疑惑已经解开了。按照我的理解，capacity是已经分配空间的Object数组，此时新增元素如果没有超过capacity的上限，就不需要经历复制数组的过程。反之则需要为elementData扩容，源码中的扩容最终会进入这样一个函数：
+
+```java
+    /**
+     * Increases the capacity to ensure that it can hold at least the
+     * number of elements specified by the minimum capacity argument.
+     *
+     * @param minCapacity the desired minimum capacity
+     */
+    private void grow(int minCapacity) {
+        // overflow-conscious code
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+```
+
+可以发现默认是扩容到1.5倍大小（```oldCapacity + (oldCapacity >> 1)```）
+
+而size则是当前已经插入的元素数量。增加一个元素时，size加1，反之则减1。这就是为什么即便扩容后也无法越过未操作的部分而直接向后面的空位添加元素，源码里会检测是否有越界行为：
+
+```java
+    /**
+     * A version of rangeCheck used by add and addAll.
+     */
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+    
+    /**
+     * Checks if the given index is in range.  If not, throws an appropriate
+     * runtime exception.  This method does *not* check if the index is
+     * negative: It is always used immediately prior to an array access,
+     * which throws an ArrayIndexOutOfBoundsException if index is negative.
+     */
+    private void rangeCheck(int index) {
+        if (index >= size)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+```
+
+所以我理解为，capacity仍然可以认为是真实的物理容量（从源码来看是已经初始化了数组，空间已经占用成功），但逻辑上限制了只能操作前size个元素，或者向其中添加一个元素，此时size加1。
+
+为什么这么做？首先数组在初始化时如果不指定值的话会用默认值，而Object（包括所有继承自Object的类，事实上所有类都默认继承自Object）的默认值是null。但ArrayList是允许存在多个null值的，似乎空着不管也不会有什么问题？有空再慢慢研究吧（汗）。
+
+## Quote
+[Arrays copyOf() in Java with examples - GeeksforGeeks](https://www.geeksforgeeks.org/arrays-copyof-in-java-with-examples/)
+
+[java arraylist ensureCapacity not working - Stack Overflow](https://stackoverflow.com/questions/7688151/java-arraylist-ensurecapacity-not-working)
+
+[ArrayListを効率的に使う3つのポイント - Qiita](https://qiita.com/frost_star/items/3a9aa929b83189dd0b9f)
+
+[【java基础】——java中父类声明子类实例化 - CSDN博客](https://blog.csdn.net/weixin_40449300/article/details/84558692)
+
